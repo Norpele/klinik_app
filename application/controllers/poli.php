@@ -20,6 +20,8 @@ class Poli extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('poli');
+        $this->load->view('header_ds.php');
+		$this->load->view('poli/v_poli.php');
+		$this->load->view('footer');
 	}
 }

@@ -1,3 +1,4 @@
+<div class="container-fluid">
 <div class="content">
     <!-- Header Section -->
     <div class="header-section bg-danger text-white py-4 px-3 rounded shadow-sm mb-4 d-flex justify-content-between align-items-center">
@@ -84,4 +85,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>
