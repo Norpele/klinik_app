@@ -5,15 +5,11 @@ class Dashboard extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-
-      
-       
-
-        // Memuat model m_dashboard
         $this->load->model('m_dashboard');
     }
 
-	public function index() {    
+	public function index() { 
+        $data['total_poli'] = $this->m_dashboard->total_poli();   
         $data['title'] = 'Dashboard';
         $data['js'] = 'dashboard';
       

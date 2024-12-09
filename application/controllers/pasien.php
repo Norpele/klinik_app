@@ -1,25 +1,25 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Poli extends CI_Controller {
+class Pasien extends CI_Controller {
 
 	public function __construct() {
         parent::__construct();
-        $this->load->model(array('m_poli'));
+        $this->load->model(array('m_pasien'));
     }
 	public function index()
 	{
-        $data['title'] = 'manajemen poli';
-        $data['poli'] = $this->m_poli->get_poli_data();
+        $data['title'] = 'manajemen pasien';
+        // $data['poli'] = $this->m_pasien->get_poli_data();
         $data['js'] = 'poli';
 
         $this->load->view('header_ds.php',$data);
-		$this->load->view('poli/v_poli.php',$data);
+		$this->load->view('poli/v_poli.php');
 		$this->load->view('footer',$data);
 	}
 
     public function load_data() {
-        $data['poli'] = $this->m_poli->get_poli_data();
+        $data['pasien'] = $this->m_pasien->get_pasien_data();
         echo json_encode($data);
     }
 

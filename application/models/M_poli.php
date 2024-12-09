@@ -1,5 +1,5 @@
 <?php
-class M_poli extends CI_Model
+class m_poli extends CI_Model
 {
 
     public function __construct()
@@ -28,8 +28,8 @@ class M_poli extends CI_Model
 
     public function delete_table($id)
     {
-        $this->db->where('id_supplier', $id);
-        if ($this->db->delete('supplier')) {
+        $this->db->where('id_poli', $id);
+        if ($this->db->delete('poli')) {
             return true;
         } else {
             return false;

@@ -18,7 +18,7 @@
                 <div class="card bg-success text-white shadow-sm">
                     <div class="card-body">
                         <h5>Manajemen Poli</h5>
-                        <p class="fs-4">3</p>
+                        <p class="fs-4"><?php echo $total_poli ?></p>
                         <i class="fas fa-user-md fa-2x"></i>
                     </div>
                 </div>

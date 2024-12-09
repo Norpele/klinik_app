@@ -86,9 +86,9 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url('dashboard')?>">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <i class="fa-solid fa-house-chimney-medical"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3"> Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3"> Klinik Sakit</div>
             </a>
 
             <!-- Divider -->
@@ -114,7 +114,7 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-cube"></i>
-                    <span>Master Manajemen</span>
+                    <span>Manajemen Klinik</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
@@ -123,12 +123,12 @@
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?php echo base_url('kategori')?>">Manajemen Kategori</a>
+                        <a class="collapse-item" href="<?php echo base_url('Pasien')?>">Manajemen Pasien</a>
                     </div>
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?php echo base_url('supplier')?>">Manajemen Supplier</a>
+                        <a class="collapse-item" href="<?php echo base_url('Antrian')?>">Manajemen Antrian</a>
                     </div>
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">

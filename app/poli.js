@@ -11,8 +11,8 @@ function load_data() {
                 html = '<tr>'
                 html += '<td>' + val['id_poli'] + '</td>'
                 html += '<td>' + val['name_poli'] + '</td>'
-                html += ' <td><button class="btn btn-warning btn-sm btn-edit" onclick="edit_table(' + val['id_poli'] + ')">Edit</button></td>'
-                html += '<td><button class="btn btn-danger btn-sm " onclick="delete_table(' + val['id_poli'] + ')">Hapus</button></td>'
+                html += ' <td><button class="btn btn-warning btn-sm btn-edit" onclick="edit_poli(' + val['id_poli'] + ')"><i class="fa-solid fa-pen-to-square"></i></button></td>'
+                html += '<td><button class="btn btn-danger btn-sm " onclick="delete_table(' + val['id_poli'] + ')"><i class="fa-solid fa-trash"></i></button></td>'
                 html += '</tr>'
                 $("#table2 > tbody").append(html);
             });
@@ -37,25 +37,37 @@ function load_data() {
         }, 'json');
   }
   
-  function update_supplier() {
+  function update_poli() {
     var id = $("#loginModal").data('id');
-    let txnama = $("#txnama").val();
-    let txkontak = $("#txkontak").val();
-    let txalamat = $("#txalamat").val();
+    let txpoli = $("#txname_poli").val();
 
-    if (txnama === "" || txalamat ===""||txkontak ==="") {
+    if (txpoli === "") {
         $.alert({
           title: 'Alert!',
           content: 'Error',
       });
       } else {
-        $.post('supplier/update_data', { id: id, txnama: txnama, txkontak:txkontak, txalamat:txalamat }, function (data) {
+        $.post('poli/update_data', { id: id, txpoli: txpoli }, function (data) {
           if (data.status === 'success') {
-            alert(data.msg);
+            Swal.fire({
+              toast: true,
+              position: 'top-end',
+              icon: 'success',
+              title: 'Poli berhasil diupdate!',
+              showConfirmButton: false,
+              timer: 3000
+          });
             load_data();
             $("#loginModal").modal('hide');
           } else {
-            alert(data.msg);
+            Swal.fire({
+              toast: true,
+              position: 'top-end',
+              icon: 'error',
+              title: 'Poli gagal ditambahkan',
+              showConfirmButton: false,
+              timer: 3000
+          });
     
           }
         }, 'json');
@@ -66,7 +78,12 @@ function load_data() {
     let txpoli = $("#txname_poli").val();
 
     if ( txpoli === "") {
-        alert("Pastikan form diisi dengan benar!");
+      Swal.fire({
+        title: 'Error!',
+        text: "Isi Form",
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
     } else {
         $.post("poli/create", {  
           txpoli : txpoli,
@@ -81,26 +98,26 @@ function load_data() {
                 confirmButtonText: 'OK'
               });
             } else {
-                alert(data.msg);
-                $("#loginModal").modal('hide');
-                $('.modal-backdrop').remove();
-                $(".alert-success").show();
-                setTimeout(function() {
-                    $(".alert-success").fadeOut(); // Menghilangkan alert dengan animasi
-                }, 2000);
-                load_data();
-                reset_form(); 
+              $("#loginModal").modal('hide');
+              $('.modal-backdrop').remove();
+                Swal.fire({
+                  toast: true,
+                  position: 'top-end',
+                  icon: 'success',
+                  title: 'poli berhasil ditambahkan!',
+                  showConfirmButton: false,
+                  timer: 3000
+              });
+              load_data();
             }
         }, 'json');
     }
 }
   
-  function edit_table(id) {
-    $.post('supplier/edit_table', { id: id }, function (data) {
+  function edit_poli(id) {
+    $.post('poli/edit_poli', { id: id }, function (data) {
       if (data.status === 'ok') {
-        $("#txnama").val(data.data.namaSupplier);
-        $("#txkontak").val(data.data.kontak);
-        $("#txalamat").val(data.data.alamat);
+        $("#txname_poli").val(data.data.name_poli);
         $("#loginModal").data('id', id); 
         $("#loginModal").modal('show');
         $(".btn-submit").hide();
@@ -127,8 +144,7 @@ function load_data() {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        // Mengirim permintaan POST untuk menghapus data
-        $.post('supplier/delete_table', { id: id }, function (data) {
+        $.post('poli/delete_table', { id: id }, function (data) {
           if (data.status === 'success') {
             Swal.fire({
               title: "Deleted!",

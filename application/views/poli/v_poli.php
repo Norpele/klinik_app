@@ -13,7 +13,7 @@
                 </div>
                 <form action="#">
                     <div class="modal-body">
-                        <label for="txnama">Nama Supplier</label>
+                        <label for="txnama">Nama Poli</label>
                         <div class="form-group">
                             <input id="txname_poli" type="text" class="form-control">
                         </div>
@@ -44,7 +44,7 @@
         </h3>
     </div>
     <div class="card-body">
-        <button class="btn btn-success btn-add" data-bs-toggle="modal" data-bs-target="#loginModal"><i class="bi bi-plus-lg"></i>Add</button>
+        <button class="btn btn-success btn-add" data-bs-toggle="modal" data-bs-target="#loginModal"><i class="bi bi-plus-lg"></i>Tambah</button>
         <button class="btn btn-primary" onclick="load_data()"><i class="bi bi-arrow-clockwise"></i>Refresh</button>
 
         <div class="table-responsive datatable-minimal" style="margin-top: 10px;">
@@ -53,6 +53,8 @@
                     <tr>
                         <th>Id Poli</th>                    
                         <th>Poli</th>
+                        <th>Edit</th>
+                        <th>Hapus</th>
                     </tr>
                 </thead>
                 <tbody>
