@@ -6,19 +6,21 @@ function load_data() {
         $("#table2 > tbody").html('');
         
         $.each(data.pembeli, function (idx, val) {
-            let statusButton = '';
+            let statusButton = ''; 
             
             // Check pesan_status and assign button HTML accordingly
             if (val['pesan_status'] == '0') {
-                statusButton = '<button class="btn btn-danger" onclick="confirmUpdateStatus(' + val['pesan_id'] + ')">Belum Diproses</button>';
+                statusButton = '<button class="btn btn-danger" onclick="confirmUpdateStatus(' + val['pesan_id'] + ', ' + val['pesan_status'] +')">Belum Diproses</button>';
             } else if (val['pesan_status'] == '1') {
                 statusButton = '<span class="badge bg-warning">diproses</span>';
-            } else if (val['pesan_status'] == '2') {
-                statusButton = '<span class="badge bg-primary">Dikirim</span>';
+            } else if (val['pesan_status'] == 2) {
+                statusButton = '<span class="badge bg-primary" onclick="confirmUpdateStatus(' + val['pesan_id'] + ', ' + val['pesan_status'] +')">Menunggu verifikasi admin</span>';
             } else if (val['pesan_status'] == '3') {
+                statusButton = '<span class="badge bg-success">Dikirim</span>';
+            } else{
                 statusButton = '<span class="badge bg-success">Selesai</span>';
             }
-
+console.log(val['pesan_status'],statusButton)
             let html = '<tr>';
             html += '<td>' + val['pesan_id'] + '</td>';
             html += '<td>' + val['pesan_id_user'] + '</td>';
@@ -64,7 +66,7 @@ function confirmUpdateStatus(pesan_id, current_status) {
         confirmButtonText: 'Yes, update it!'
     }).then((result) => {
         if (result.isConfirmed) {
-            const new_status = current_status < 3 ? current_status + 1 : 3;
+            const new_status = current_status < 4 ? current_status + 1 : 4;
             updateStatus(pesan_id, new_status);
         }
     });

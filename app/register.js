@@ -52,7 +52,7 @@ $(document).ready(function() {
                         showConfirmButton: false,
                         timer: 3000
                     });
-                    window.location.href = 'user'; // halaman yang dituju
+                    window.location.href = "<?= base_url('login/index'); ?>";
                 }
             }, 'json');
     });

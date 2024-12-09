@@ -20,6 +20,7 @@ function updateStatus() {
         success: function(response) {
             if (response.status === 'success') {
                 Swal.fire("Berhasil", response.msg, "success");
+                location.reload();
             } else {
                 Swal.fire("Error", response.msg, "error");
             }

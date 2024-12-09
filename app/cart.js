@@ -66,22 +66,30 @@ const errorMessage = document.getElementById('error-message');
     }
 
     function cek_ongkir() {
+        $("#txongkir").empty();
+        $(".spinner").show();
+        $('#dynamic-container').empty();
         $.post("cart/cek_ongkir", {
             kec_tujuan: $("#txkecamatan").val(),
             kurir: $("#txkurir").val()
         }, function(res) {
-            $("#txongkir").empty();
             $('#dynamic-container').empty();
+            $("#txongkir").empty();
+            $(".spinner").hide();
        
             $("#txongkir").append('<option value="">Pilih kecamatan</option>');
-    
+
+            
+
             $.each(res.kec, function(i, v) {
                 $("#txkecamatan").append('<option value="' + v.id + '">' + v.nama + '</option>');
             });
+
+            if(res.layanan.length > 0){
             $.each(res.layanan, function(i, v) {
                 $('#dynamic-container').append(
                     '<div class="col-md-6 mb-3">' +
-                        '<div class="card selectable-card" value="' + v.xid + '">' +  
+                        '<div class="card selectable-card" value="' + v.xid + '" data-ongkir="' + v.biaya + '" data-nama="'+ v.nama +'" data-ket="'+ v.ket+ '" data-etd = "'+v.etd+'">' +  
                             '<div class="card-body">' +
                                 '<h5 class="card-title">' + v.nama + '</h5>' +
                                 '<p class="card-text">' + v.ket + '</p>' +
@@ -92,8 +100,18 @@ const errorMessage = document.getElementById('error-message');
                         '</div>' +
                     '</div>'
                 );
-            });
-            
+            }, 'json');
+        }else{
+            $('#dynamic-container').append(
+                '<div class="col-md-6 mb-3">' +
+                    '<div class="card selectable-card">' +  
+                        '<div class="card-body">' +
+                            '<h5 class="card-title"> Kurir Tidak ditemukan</h5>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>'
+            );
+        }
         }, 'json');
     }
 
@@ -103,9 +121,42 @@ const errorMessage = document.getElementById('error-message');
         $(this).addClass('selected');
         
         var selectedId = $(this).attr('value');
-        const ongkir = $('#ongkir').text();
+        const biaya = $(this).data('ongkir');
+        const ekspedisi = $(this).data('nama');
+        const ket = $(this).data('ket');
+        const etd = $(this).data('etd');
+        var total = $("[name='total_amount']").attr('total');
         console.log("Kartu yang dipilih:" + selectedId); // buat testing, biar tau id dari card kepanggil atau tidak
-        console.log("ongkir:" + ongkir); // buat testing, biar tau ongkir dari card kepanggil atau tidak
+        console.log("ongkir:" + (biaya)); // buat testing, biar tau ongkir dari card kepanggil atau tidak
+        console.log("total:" + (total));
+        var subtotal = parseFloat(total) + parseFloat(biaya);
+        console.log(subtotal);
+
+        $("[name='kurir_ket']").val(ket);
+        $("[name='kurir_ongkir']").val(biaya);
+        $("[name='total_amount']").val(subtotal);
+
+        $('#output-total').html('');
+
+        $('#output-total').append(`
+            <div class="alert alert-info w-100">
+                <h5 class="mb-1">Total Pembayaran</h5>
+                <p class="mb-0">
+                    <strong>Total:</strong> Rp ${total.toLocaleString()}<br>
+                    <strong>Ongkir:</strong> Rp ${biaya.toLocaleString()}<br>
+                    <strong>Subtotal:</strong> <span class="text-success">Rp ${subtotal.toLocaleString()}</span>
+                </p>
+            </div>
+        `);
+        // $.post("cart/saveOrder", { 
+        //     biaya: biaya, 
+        //     subtotal: subtotal, 
+        //     ekspedisi: ekspedisi, 
+        //     ket: ket 
+        // }, function(res) {
+        //     console.log(res); 
+        // }, 'json');
+        
     });
     
     

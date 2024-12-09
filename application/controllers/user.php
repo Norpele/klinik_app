@@ -12,11 +12,10 @@ class User extends CI_Controller {
     public function index() {
         $id_kategori = $this->input->get('kategori'); 
         $data['barang'] = $this->m_barang->get_barang_data($id_kategori); 
-        // $data['barang'] = $this->m_barang->get_barang_data();
         $data['js'] = 'user';
         
         // Memuat view dan mengirimkan data barang
-        $this->load->view('header_user');
+        $this->load->view('header_ds');
         $this->load->view('user/v_user', $data);
         $this->load->view('footer',$data);
     }

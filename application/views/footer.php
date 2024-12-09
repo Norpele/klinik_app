@@ -42,6 +42,16 @@
         cekTransaksi()
     },5000)
 
+    //Menampilkan tanggal
+    const dateElement = document.getElementById("current-date");
+    const today = new Date();
+
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = today.toLocaleDateString('id-ID', options);
+
+    // Menampilkan tanggal pada elemen
+    dateElement.textContent = formattedDate;
+
  </script>
  <?php if (isset($js)) { ?>
      <script src="<?php echo base_url('app/' . $js . '.js'); ?>"></script>

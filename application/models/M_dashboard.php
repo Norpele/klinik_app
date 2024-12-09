@@ -16,7 +16,17 @@ class M_dashboard extends CI_Model {
     public function get_total_pengeluaran() {
         $this->db->select('SUM(totalHarga) as total_pengeluaran');
         $query = $this->db->get('barang');
-        return $query->row()->total_pengeluaran; // Mengembalikan total pengeluaran
+        return $query->row()->total_pengeluaran; 
     }
+    public function get_total_pendapatan() {
+        $this->db->select('SUM(total_harga) as total_pendapatan');
+        $query = $this->db->get('pemesanan_detail');  
+        return $query->row()->total_pendapatan; 
+    }
+    
+    
+    
+    
+    
 }
 ?>

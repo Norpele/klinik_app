@@ -1,123 +1,60 @@
-<!-- End of Topbar -->
-
-<!-- Begin Page Content -->
-<div class="container-fluid">
-
-    <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+<div class="content">
+    <!-- Header Section -->
+    <div class="header-section bg-danger text-white py-4 px-3 rounded shadow-sm mb-4 d-flex justify-content-between align-items-center">
+        <div>
+            <h1 class="mb-0">Dashboard Admin</h1>
+            <p class="mb-0 fs-6">Selamat datang kembali! Pantau aktivitas klinik dengan mudah.</p>
+        </div>
+        <div>
+            <i class="fas fa-user-circle">Admin</i> 
+        </div>
     </div>
 
-    <!-- Content Row -->
-    <div class="row">
-
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4" style="padding-left:20px;">
-    <div class="card border-left-danger shadow h-100 py-2">
-        <div class="card-body">
-            <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                        Pengeluaran</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">
-                        <?php echo 'Rp' . number_format($total_pengeluaran, 2); ?> <!-- Tampilkan total pengeluaran dengan format -->
+    <div class="row g-4">
+        <!-- Card 1 -->
+        <div class="col-xl-3 col-md-6">
+            <a href="<?php echo base_url('poli') ?>" style="text-decoration: none;">
+                <div class="card bg-success text-white shadow-sm">
+                    <div class="card-body">
+                        <h5>Manajemen Poli</h5>
+                        <p class="fs-4">3</p>
+                        <i class="fas fa-user-md fa-2x"></i>
                     </div>
                 </div>
-                <div class="col-auto">
-                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+            </a>
+        </div>
+        <!-- Card 2 -->
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-primary text-white shadow-sm">
+                <div class="card-body">
+                    <h5>Manajemen Pasien</h5>
+                    <p class="fs-4">0</p>
+                    <i class="fas fa-users fa-2x"></i>
+                </div>
+            </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="col-xl-3 col-md-6">
+                <div class="card bg-warning text-white shadow-sm">
+                    <div class="card-body">
+                        <h5>Antrian</h5>
+                        <p class="fs-4">50</p>
+                        <i class="fas fa-file-medical fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        <!-- Card 4 -->
+        <div class="col-xl-3 col-md-6 ml-auto" style="text-align: end;">
+            <div class="card bg-info text-white shadow-sm">
+                <div class="card-body">
+                    <h5>Jadwal Hari Ini</h5>
+                    <p id="current-date" class="fs-3" style="font-size: 16px;"></p>
+                    <i class="fas fa-calendar-check fa-2x"></i>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4" style="padding-left:20px;">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                Pendapatan</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Keuntungan
-                            </div>
-                            <div class="row no-gutters align-items-center" style="padding-left:20px;">
-                                <div class="col-auto">
-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                </div>
-                                <div class="col">
-                                    <div class="progress progress-sm mr-2">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Pending Requests Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4" style="padding-left:20px;">
-            <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                Produk</div>
-                            <div id="jumlah-barang" class="h5 mb-0 font-weight-bold text-gray-800">
-                                <?php echo $jumlah_jenis_barang; ?> <!-- Menampilkan jumlah jenis barang -->
-                            </div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-box"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- Content Row -->
-
-    <div class="row">
-
-        <!-- Area Chart -->
-        
-               
-    </div>
-
-    <!-- Content Row -->
-
-
-</div>
-<!-- /.container-fluid -->
-
-</div>
-<!-- End of Main Content -->
-
 <!-- Footer -->
 <footer class="sticky-footer bg-white">
     <div class="container my-auto">
@@ -127,18 +64,9 @@
     </div>
 </footer>
 <!-- End of Footer -->
-
-</div>
-<!-- End of Content Wrapper -->
-
-</div>
-<!-- End of Page Wrapper -->
-
-<!-- Scroll to Top Button-->
 <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
 </a>
-
 <!-- Logout Modal-->
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
