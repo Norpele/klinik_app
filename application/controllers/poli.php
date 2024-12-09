@@ -23,8 +23,9 @@ class Poli extends CI_Controller {
         $data['title'] = 'manajemen supplier';
         $data['poli'] = $this->m_poli->get_poli_data();
         $data['js'] = 'poli';
-        $this->load->view('header_ds.php');
-		$this->load->view('poli/v_poli.php');
+
+        $this->load->view('header_ds.php',$data);
+		$this->load->view('poli/v_poli.php',$data);
 		$this->load->view('footer',$data);
 	}
 

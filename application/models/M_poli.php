@@ -1,5 +1,5 @@
 <?php
-class M_supplier extends CI_Model
+class M_poli extends CI_Model
 {
 
     public function __construct()
@@ -13,7 +13,7 @@ class M_supplier extends CI_Model
         return $this->db->insert('supplier', $data);
     }
 
-    public function get_supplier_data()
+    public function get_poli_data()
     {
         $sql = "SELECT * FROM poli order by id_poli desc;";
         $query = $this->db->query($sql);

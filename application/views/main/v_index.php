@@ -14,7 +14,7 @@
     <div class="row g-4">
         <!-- Card 1 -->
         <div class="col-xl-3 col-md-6">
-            <a href="<?php echo base_url('poli') ?>" style="text-decoration: none;">
+            <a href="<?php echo base_url('Poli') ?>" style="text-decoration: none;">
                 <div class="card bg-success text-white shadow-sm">
                     <div class="card-body">
                         <h5>Manajemen Poli</h5>
