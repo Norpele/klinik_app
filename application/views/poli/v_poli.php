@@ -15,15 +15,7 @@
                     <div class="modal-body">
                         <label for="txnama">Nama Supplier</label>
                         <div class="form-group">
-                            <input id="txnama" type="text" class="form-control">
-                        </div>
-                        <label for="txkontak">Kontak Supplier</label>
-                        <div class="form-group">
-                            <input id="txkontak" type="number" class="form-control" max="13">
-                        </div>
-                        <label for="txalamat">Alamat Supplier</label>
-                        <div class="form-group">
-                            <input id="txalamat" type="text" class="form-control">
+                            <input id="txname_poli" type="text" class="form-control">
                         </div>
                     </div>
                     <div class="modal-footer">

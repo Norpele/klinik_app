@@ -1,5 +1,5 @@
 function load_data() {
-    $.post("supplier/load_data",
+    $.post("poli/load_data",
         {
           
         },
@@ -7,14 +7,12 @@ function load_data() {
             console.log(data)
             $("#table2").DataTable().clear().destroy()
             $("#table2 > tbody").html('');
-           $.each(data.supplier, function (idx, val) {
+           $.each(data.poli, function (idx, val) {
                 html = '<tr>'
-                html += '<td>' + val['id_supplier'] + '</td>'
-                html += '<td>' + val['namaSupplier'] + '</td>'
-                html += '<td>' + val['kontak'] + '</td>'
-                html += '<td>' + val['alamat'] + '</td>'
-                html += ' <td><button class="btn btn-warning btn-sm btn-edit" onclick="edit_table(' + val['id_supplier'] + ')">Edit</button></td>'
-                html += '<td><button class="btn btn-danger btn-sm " onclick="delete_table(' + val['id_supplier'] + ')">Hapus</button></td>'
+                html += '<td>' + val['id_poli'] + '</td>'
+                html += '<td>' + val['name_poli'] + '</td>'
+                html += ' <td><button class="btn btn-warning btn-sm btn-edit" onclick="edit_table(' + val['id_poli'] + ')">Edit</button></td>'
+                html += '<td><button class="btn btn-danger btn-sm " onclick="delete_table(' + val['id_poli'] + ')">Hapus</button></td>'
                 html += '</tr>'
                 $("#table2 > tbody").append(html);
             });
@@ -65,17 +63,13 @@ function load_data() {
   }
   
   function simpan_data() {
-    let txnama = $("#txnama").val();
-    let txkontak = $("#txkontak").val();
-    let txalamat = $("#txalamat").val();
+    let txpoli = $("#txname_poli").val();
 
-    if ( txnama === "" || txkontak === ""|| txalamat === "" ) {
+    if ( txpoli === "") {
         alert("Pastikan form diisi dengan benar!");
     } else {
-        $.post("supplier/create", {  
-          txnama : txnama,
-          txkontak : txkontak,
-          txalamat : txalamat
+        $.post("poli/create", {  
+          txpoli : txpoli,
         },
         function (data) {
             console.log(data.status);

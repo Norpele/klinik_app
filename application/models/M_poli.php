@@ -8,14 +8,14 @@ class M_supplier extends CI_Model
         $this->load->database();
     }
 
-    public function insert_supplier($data)
+    public function insert_poli($data)
     {
         return $this->db->insert('supplier', $data);
     }
 
     public function get_supplier_data()
     {
-        $sql = "SELECT * FROM supplier order by id_supplier desc;";
+        $sql = "SELECT * FROM poli order by id_poli desc;";
         $query = $this->db->query($sql);
         return $query->result();
     }
