@@ -86,9 +86,9 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url('dashboard')?>">
                 <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fa-solid fa-house-chimney-medical"></i>
+                    <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3"> Klinik Sakit</div>
+                <div class="sidebar-brand-text mx-3"> Admin <sup>2</sup></div>
             </a>
 
             <!-- Divider -->
@@ -128,7 +128,7 @@
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?php echo base_url('Antrian')?>">Manajemen Antrian</a>
+                        <a class="collapse-item" href="<?php echo base_url('')?>">Manajemen Antrian</a>
                     </div>
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">

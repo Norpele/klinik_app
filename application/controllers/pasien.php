@@ -6,7 +6,7 @@ class Pasien extends CI_Controller {
 	public function __construct() {
         parent::__construct();
         $this->load->model(array('m_pasien'));
-    }
+    } 
 	public function index()
 	{
         $data['title'] = 'manajemen pasien';
@@ -14,7 +14,7 @@ class Pasien extends CI_Controller {
         $data['js'] = 'poli';
 
         $this->load->view('header_ds.php',$data);
-		$this->load->view('poli/v_poli.php');
+		$this->load->view('view_pasien/v_pasien.php');
 		$this->load->view('footer',$data);
 	}
 
@@ -23,23 +23,29 @@ class Pasien extends CI_Controller {
         echo json_encode($data);
     }
 
-    public function create() {
-        $txpoli = $this->input->post('txpoli');
-            $sql = "INSERT INTO poli (name_poli) VALUES 
-            ('{$txpoli}')";
-            $exc = $this->db->query($sql);
-
-            if ($exc) {
-                $res['status'] = 'success';
-                $res['msg'] = "Simpan data supplier berhasil";
-
-            } else {
-                $res['status'] = 'error';
-                $res['msg'] = "Simpan data supplier gagal";
-            }
-        
-        echo json_encode($res);
-}
+    public function noPasien() {
+        $sql = "SELECT IFNULL(
+            (
+                SELECT CONCAT('PSN/', 
+                              DATE_FORMAT(DATE(NOW()), '%m%y'), '/', 
+                              LPAD(RIGHT(no_khusus, 3) + 1, 3, '0'))
+                FROM pasien
+                WHERE no_khusus LIKE CONCAT('PSN/', 
+                                            DATE_FORMAT(DATE(NOW()), '%m%y'), '/%')
+                      AND DATE_FORMAT(tanggal_daftar, '%Y%m') = DATE_FORMAT(DATE(NOW()), '%Y%m')
+                ORDER BY RIGHT(no_khusus, 3) DESC 
+                LIMIT 1
+            ),
+            (
+                SELECT CONCAT('PSN/', 
+                              DATE_FORMAT(DATE(NOW()), '%m%y'), '/001')
+            )
+        ) AS no_khusus";
+    
+        $no_khusus = $this->db->query($sql)->row()->no_khusus;
+        return $no_khusus;
+    }    
+    
     public function edit_poli(){
         $id = $this->input->post('id');
         $sql = $this->db->query("SELECT * FROM poli WHERE id_poli = ?", array($id));

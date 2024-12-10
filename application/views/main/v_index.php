@@ -6,9 +6,11 @@
             <h1 class="mb-0">Dashboard Admin</h1>
             <p class="mb-0 fs-6">Selamat datang kembali! Pantau aktivitas klinik dengan mudah.</p>
         </div>
-        <div>
-            <i class="fas fa-user-circle">Admin</i> 
+        <div class="clock-display d-flex align-items-center">
+        <i class="fa-regular fa-clock me-2"></i>
+        <p class="mb-0 fs-6" id="hour_display"></p> 
         </div>
+
     </div>
 
     <div class="row g-4">
@@ -26,6 +28,7 @@
         </div>
         <!-- Card 2 -->
         <div class="col-xl-3 col-md-6">
+        <a href="<?php echo base_url('Pasien') ?>" style="text-decoration: none;">
             <div class="card bg-primary text-white shadow-sm">
                 <div class="card-body">
                     <h5>Manajemen Pasien</h5>
@@ -33,6 +36,7 @@
                     <i class="fas fa-users fa-2x"></i>
                 </div>
             </div>
+        </a>
         </div>
         <!-- Card 3 -->
         <div class="col-xl-3 col-md-6">
