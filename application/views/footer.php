@@ -38,16 +38,16 @@
  
 
  <script>
-     var base_url = '<?php echo base_url(); ?>'
-     function cekTransaksi() {
-        $.post(base_url + "dashboard/cekTransaksi", function(res){
-            $(".history").html(res.salam);
-        },'json')
-    }
+    //  var base_url = '<?php echo base_url(); ?>'
+    //  function cekTransaksi() {
+    //     $.post(base_url + "dashboard/cekTransaksi", function(res){
+    //         $(".history").html(res.salam);
+    //     },'json')
+    // }
 
-    setInterval(function(){
-        cekTransaksi()
-    },5000)
+    // setInterval(function(){
+    //     cekTransaksi()
+    // },5000)
 
     function hour_date(){
         let display_clock = document.getElementById("hour_display");

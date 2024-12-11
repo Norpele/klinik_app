@@ -31,11 +31,11 @@ class Poli extends CI_Controller {
 
             if ($exc) {
                 $res['status'] = 'success';
-                $res['msg'] = "Simpan data supplier berhasil";
+                $res['msg'] = "Simpan data poli berhasil";
 
             } else {
                 $res['status'] = 'error';
-                $res['msg'] = "Simpan data supplier gagal";
+                $res['msg'] = "Simpan data poli gagal";
             }
         
         echo json_encode($res);
@@ -56,7 +56,8 @@ class Poli extends CI_Controller {
     }
     public function delete_table()
     {
-        if ($this->m_poli->delete_table($this->input->post("id"))) {
+        $this->db->where('id_poli', $this->input->post("id"));
+        if ($this->db->delete('poli')) {
             $res['status'] = 'success';
             $res['msg'] = 'Data Berhasil dihapus';
         } else {

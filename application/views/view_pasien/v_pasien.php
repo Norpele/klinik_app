@@ -16,8 +16,8 @@
                 <div class="modal-body">
                     <div class="form-group row">
                         <div class="col-md-6">
-                            <label for="username">Username</label>
-                            <input type="text" class="form-control" id="username" name="username">
+                            <label for="nama_pasien">Nama Pasien</label>
+                            <input type="text" class="form-control" id="nama_pasien" name="nama_pasien">
                         </div>
                         <div class="col-md-3">
                             <label for="umur">Umur</label>
@@ -34,8 +34,8 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-md-3">
-                            <label for="tanggal_lahir">Tanggal Lahir</label>
-                            <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir">
+                            <label for="tanggal_pendaftaran">Tanggal Pendaftaran</label>
+                            <input type="text" class="form-control" id="tanggal_pendaftaran" name="tanggal_pendaftaran" value="<?= date('Y-m-d')?>" readonly>
                         </div>
                         <div class="col-md-6">
                             <label for="alamat">Alamat</label>
@@ -57,11 +57,11 @@
                             <i class="bx bx-x d-block d-sm-none"></i>
                             <span class="btn-closed d-none d-sm-block ">Close</span>
                         </button>
-                        <button type="button" class="btn btn-primary btn-submit ms-1" onclick="simpan_data()">
+                        <button type="button" class="btn btn-primary btn-submit ms-1" onclick="saveDataPasien()">
                             <i class="bx bx-check d-block d-sm-none"></i>
                             <span class="d-none d-sm-block">Submit</span>
                         </button>
-                        <button type="button" class="btn btn-warning btn-editen ms-1" onclick="update_supplier()">
+                        <button type="button" class="btn btn-warning btn-editen ms-1" onclick="update_pasien()">
                             <i class="bx bx-check d-block d-sm-none"></i>
                             <span class="d-none d-sm-block">Update</span>
                         </button>
@@ -83,6 +83,9 @@
         <button class="btn btn-primary" onclick="load_data()"><i class="bi bi-arrow-clockwise"></i>Refresh</button>
 
         <div class="table-responsive datatable-minimal" style="margin-top: 10px;">
+            <div class="spinner-border text-success spinner" role="status" style ="display:none;">
+                 <span class="visually-hidden">Loading...</span>
+            </div>
             <table class="table" id="table2">
                 <thead>
                     <tr>
@@ -91,8 +94,10 @@
                         <th>Umur</th>
                         <th>Jenis Kelamin</th>
                         <th>Alamat</th>
-                        <th>Tanggal Lahir</th>
-                        <th>Nomor Unik</th>
+                        <th>Tanggal Pendaftaran</th>
+                        <th>Nomor Unik Pasien</th>
+                        <th>Kelas Bpjs</th>
+                        <th>Status</th>
                         <th>Edit</th>
                         <th>Hapus</th>
                     </tr>

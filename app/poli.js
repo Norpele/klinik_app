@@ -1,10 +1,11 @@
 function load_data() {
+  $(".spinner").show();
     $.post("poli/load_data",
         {
           
         },
         function (data) {
-            console.log(data)
+            $(".spinner").hide();            
             $("#table2").DataTable().clear().destroy()
             $("#table2 > tbody").html('');
            $.each(data.poli, function (idx, val) {
@@ -135,19 +136,19 @@ function load_data() {
   
   function delete_table(id) {
     Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
+      title: "Apakah Kamu Ingin Mengahapus Poli?",
+      text: "Menghapus Poli",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
+      confirmButtonText: "Ya, Hapus"
     }).then((result) => {
       if (result.isConfirmed) {
         $.post('poli/delete_table', { id: id }, function (data) {
           if (data.status === 'success') {
             Swal.fire({
-              title: "Deleted!",
+              title: "Terhapus!",
               text: data.msg,
               icon: "success"
             }).then(() => {

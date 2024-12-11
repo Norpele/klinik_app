@@ -48,6 +48,9 @@
         <button class="btn btn-primary" onclick="load_data()"><i class="bi bi-arrow-clockwise"></i>Refresh</button>
 
         <div class="table-responsive datatable-minimal" style="margin-top: 10px;">
+        <div class="spinner-border text-success spinner" role="status" style ="display:none;">
+                 <span class="visually-hidden">Loading...</span>
+            </div>
             <table class="table" id="table2">
                 <thead>
                     <tr>
