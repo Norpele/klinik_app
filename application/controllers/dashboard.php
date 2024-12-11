@@ -4,9 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Dashboard extends CI_Controller {
 
     public function __construct() {
-        parent::__construct();
-        $this->load->model(array('M_dashboard'));
-    }
+         parent::__construct();
+         $this->load->model(array('M_dashboard'));
+     }
 
 	public function index() { 
         $data['total_poli'] = $this->m_dashboard->total_poli();   
