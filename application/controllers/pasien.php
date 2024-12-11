@@ -10,7 +10,6 @@ class Pasien extends CI_Controller {
 	public function index()
 	{
         $data['title'] = 'manajemen pasien';
-        // $data['poli'] = $this->m_pasien->get_poli_data();
         $data['js'] = 'pasien';
 
         $this->load->view('header_ds.php',$data);

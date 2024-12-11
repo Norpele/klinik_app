@@ -32,7 +32,7 @@
             <div class="card bg-primary text-white shadow-sm">
                 <div class="card-body">
                     <h5>Manajemen Pasien</h5>
-                    <p class="fs-4">0</p>
+                    <p class="fs-4"><?php echo $total_pasien_data ?></p>
                     <i class="fas fa-users fa-2x"></i>
                 </div>
             </div>
