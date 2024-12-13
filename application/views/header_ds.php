@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link rel="icon" href="<?php echo base_url('assets/img/smile.png'); ?>" type="image/png">
+    <link rel="icon" href="<?php echo base_url('assets/img/icon.png'); ?>" type="image/png">
     <title><?php echo isset($title) ? $title : 'Dashboard Admin'; ?></title>
 
     <!-- Custom fonts for this template-->
