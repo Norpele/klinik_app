@@ -27,8 +27,7 @@
                         </fieldset>
                         <label for="txtanggal">Tanggal Antri</label>
                         <input type="text" class="form-control" id="txtanggal" name="txtanggal" value="<?= date('Y-m-d') ?>" readonly>
-                        <label for="txnomor_unik">No Unik Khusus Pasien</label>
-                        <input type="text" class="form-control" id="txnomor_unik" name="txnomor_unik" readonly>
+                    
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-closed btn-danger" data-bs-dismiss="modal" onchange="resetform()">

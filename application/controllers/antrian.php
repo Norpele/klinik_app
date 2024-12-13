@@ -51,11 +51,11 @@ class antrian extends CI_Controller {
         $poli = $this->input->post('txpoli');
         $tanggal = $this->input->post('txtanggal');
     
-        $query = $this->db->query("SELECT COUNT(*) as count FROM antrian WHERE Pasien_id = '{$txnama_pasien}' AND Poli_id = '{$poli}' AND status_antri IN (1,2)");
+        $query = $this->db->query("SELECT COUNT(*) as count FROM antrian WHERE Pasien_id = '{$txnama_pasien}' AND status_antri IN (1,2)");
         $result = $query->row();
     
         if ($result->count > 0) {
-            $patientNameQuery = "SELECT nama_pasien FROM pasien WHERE id_Pasien = '{$txnama_pasien}'";
+            $patientNameQuery = "SELECT nama_pasien FROM pasien WHERE id_pasien = '{$txnama_pasien}'";
             $patientName = $this->db->query($patientNameQuery)->row()->nama_pasien;
     
             $res['status'] = 'error';

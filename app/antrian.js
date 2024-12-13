@@ -54,22 +54,10 @@ function get_load_nama_pasien() {
         $("#txnama_pasien").append('<option value="">Pilih Nama Pasien</option>');  
         
         $.each(res.data_pasien, function(i, v) {
-            let no_unik_pasien = res.id_pasien;
             $("#txnama_pasien").append('<option value="'+ v.id_pasien +'">'+ v.nama_pasien +'</option>');
         });
     }, 'json');
 }
-
-function get_load_nomor_unik(id_pasien) { 
-    $.post('antrian/get_nomor_unik_pasien', {id_pasien: id_pasien}, function(res) {
-         if (res.success) { 
-            $("#txnomor_unik").val(res.no_unik_pasien); 
-        } else { 
-            $("#txnomor_unik").val(''); 
-        } 
-    }, 'json'); 
-}
-
 function get_load_poli() {
     $.post('antrian/get_data_poli', function(res) {
         $("#txpoli").empty();
@@ -198,9 +186,5 @@ $(document).ready(function () {
     $("#dropdown-filter").change(function () {
         let id_poli = $(this).val(); 
         load_data(id_poli);
-    });
-    $("txnama_pasien").change(function () {
-        let id_pasien = $(this).val();
-         get_load_nomor_unik(id_pasien);
     });
 });
