@@ -40,14 +40,16 @@
         </div>
         <!-- Card 3 -->
         <div class="col-xl-3 col-md-6">
+        <a href="<?php echo base_url('Antrian') ?>" style="text-decoration: none;">
                 <div class="card bg-warning text-white shadow-sm">
                     <div class="card-body">
                         <h5>Antrian</h5>
-                        <p class="fs-4">50</p>
+                        <p class="fs-4"><?php echo $total_pasien_hari_ini ?></p>
                         <i class="fas fa-file-medical fa-2x"></i>
                     </div>
                 </div>
-            </div>
+        </a>
+        </div>
         <!-- Card 4 -->
         <div class="col-xl-3 col-md-6 ml-auto" style="text-align: end;">
             <div class="card bg-info text-white shadow-sm">

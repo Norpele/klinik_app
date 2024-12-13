@@ -165,41 +165,5 @@ function load_data() {
       }
     });
   }
-  
-  function reset_form(){
-    $(".form-control").val('');
-    $("#txdeskripsi").val('');
-    $(".form-select").val('');
-  }
-  
-  
-  
-  $(document).ready(function(){
-    $(".alert-success").hide();
-      $(".btn-add").click(function(){
-        $("#loginModal").modal("show");
-        $(".btn-editen").hide();
-        $(".btn-submit").show();
-        $('#imgPreview').attr('src', ''); //memanggil gambar
-        reset_form();
-      });
-      $(".btn-closed").click(function () {
-        $("#loginModal").modal("hide");
-      }
-      )
-      load_data()
-      load_Kategori();
-      $("#tximg").change(function() {
-        var input = this;
-  
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-  
-            reader.onload = function(e) {
-                $('#imgPreview').attr('src', e.target.result);
-            }
-  
-            reader.readAsDataURL(input.files[0]); // Mengubah file menjadi Data URL
-        }
-    });
-    });
+
+  load_data()

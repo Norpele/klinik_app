@@ -9,13 +9,6 @@ function load_data() {
           $("#table2").DataTable().clear().destroy()
           $("#table2 > tbody").html('');
          $.each(data.pasien, function (idx, val) {
-            let status_antri = "";
-
-            if(val['status_antri'] == 0){
-                status_antri = "Tidak Sedang Mengantri";
-            }else{
-                status_antri = "Sedang Mengantri";
-            }
               html = '<tr>'
               html += '<td>' + val['id_pasien'] + '</td>'
               html += '<td>' + val['nama_pasien'] + '</td>'
@@ -25,7 +18,6 @@ function load_data() {
               html += '<td>' + val['tanggal_pendaftaran'] + '</td>'
               html += '<td>' + val['no_unik_pasien'] + '</td>'
               html += '<td>' + val['bpjs'] + '</td>'
-              html += '<td>' + status_antri + '</td>'
               html += ' <td><button class="btn btn-warning btn-sm btn-edit" onclick="editDataPasien(' + val['id_pasien'] + ')"><i class="fa-solid fa-pen-to-square"></i></button></td>'
               html += '<td><button class="btn btn-danger btn-sm " onclick="delete_table(' + val['id_pasien'] + ')"><i class="fa-solid fa-trash"></i></button></td>'
               html += '</tr>'
@@ -94,6 +86,7 @@ function saveDataPasien(){
                     timer: 3000
                 });
                 load_data();
+                resetform();
               }
           }, 'json');
     }
@@ -151,6 +144,7 @@ function update_pasien() {
           });
             load_data();
             $("#loginModal").modal('hide');
+            resetform()
           } else {
             Swal.fire({
               toast: true,
@@ -199,8 +193,18 @@ function delete_table(id) {
 }
 load_data();
 
+function resetform() {
+  let txnama_pasien = $("#nama_pasien").val('');
+    let txpoli = $("#umur").val('');
+    let dropdown = $("#jenis-kelamin").val('');
+}
+
+
 $(document).ready(function(){
     $(".btn-add").click(function(){
     $(".btn-editen").hide();
+    });
+    $(".btn-closed").click(function(){
+       resetform()
     });
 });

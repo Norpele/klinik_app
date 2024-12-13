@@ -31,8 +31,8 @@ class Pasien extends CI_Controller {
         $txalamat = $this->input->post('alamat');
         $txbpjs = $this->input->post('bpjs');
 
-            $sql = "INSERT INTO pasien (nama_pasien, umur, no_unik_pasien, alamat, jenis_kelamin, tanggal_pendaftaran, bpjs, status_antri) VALUES 
-            ('{$txnama}','{$txumur}','{$txno_unik}','{$txalamat}','{$txjenis_kelamin}','{$txtanggal_pendaftaran}','{$txbpjs}', 0)";
+            $sql = "INSERT INTO pasien (nama_pasien, umur, no_unik_pasien, alamat, jenis_kelamin, tanggal_pendaftaran, bpjs) VALUES 
+            ('{$txnama}','{$txumur}','{$txno_unik}','{$txalamat}','{$txjenis_kelamin}','{$txtanggal_pendaftaran}','{$txbpjs}')";
             $exc = $this->db->query($sql);
 
             if ($exc) {

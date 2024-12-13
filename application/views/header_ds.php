@@ -128,7 +128,7 @@
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?php echo base_url('')?>">Manajemen Antrian</a>
+                        <a class="collapse-item" href="<?php echo base_url('Antrian')?>">Manajemen Antrian</a>
                     </div>
                 </div>
             </li>

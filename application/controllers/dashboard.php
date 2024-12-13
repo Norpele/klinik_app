@@ -10,7 +10,8 @@ class Dashboard extends CI_Controller {
 
 	public function index() { 
         $data['total_poli'] = $this->m_dashboard->get_total_poli();
-        $data['total_pasien_data'] = $this->m_dashboard->get_total_data_pasien();   
+        $data['total_pasien_data'] = $this->m_dashboard->get_total_data_pasien();
+        $data['total_pasien_hari_ini'] = $this->m_dashboard->get_total_data_antrian();    
         $data['title'] = 'Dashboard';
         $data['js'] = 'dashboard';
       

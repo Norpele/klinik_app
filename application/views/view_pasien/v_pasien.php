@@ -97,7 +97,6 @@
                         <th>Tanggal Pendaftaran</th>
                         <th>Nomor Unik Pasien</th>
                         <th>Kelas Bpjs</th>
-                        <th>Status</th>
                         <th>Edit</th>
                         <th>Hapus</th>
                     </tr>
